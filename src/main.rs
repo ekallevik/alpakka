@@ -32,7 +32,7 @@ fn main() -> Result<()> {
 
     let items: Vec<&str> = selected_activities
         .iter()
-        .flat_map(|&key| activities.get(key)?.to_owned())
+        .flat_map(|&key| activities.get(key).unwrap().to_owned())
         .collect();
 
     let unique_items: HashSet<_> = HashSet::from_iter(items.iter().copied());
